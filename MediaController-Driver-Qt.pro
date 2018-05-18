@@ -28,13 +28,16 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     windowsactionmanager.cpp \
-    mediamanager.cpp
+    mediamanager.cpp \
+    windowsperformancemonitor.cpp
 
 HEADERS += \
         mainwindow.h \
     iactionmanager.h \
     windowsactionmanager.h \
-    mediamanager.h
+    mediamanager.h \
+    iperformancemonitor.h \
+    windowsperformancemonitor.h
 
 FORMS += \
         mainwindow.ui

@@ -1,7 +1,6 @@
-#include <QtGlobal>
+#include "windowsactionmanager.h"
 
 #ifdef Q_OS_WIN
-#include "windowsactionmanager.h"
 
 #include <Windows.h>
 

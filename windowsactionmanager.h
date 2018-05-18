@@ -1,9 +1,9 @@
-#include <QtGlobal>
-
-#ifdef Q_OS_WIN
 #ifndef WINDOWSACTIONMANAGER_H
 #define WINDOWSACTIONMANAGER_H
 
+#include <QtGlobal>
+
+#ifdef Q_OS_WIN
 #include "iactionmanager.h"
 
 class WindowsActionManager : public IActionManager
@@ -18,5 +18,5 @@ private:
     void executeKey_Windows(int virtualKeyCode);
 };
 
-#endif // WINDOWSACTIONMANAGER_H
 #endif //Q_OS_WIN
+#endif // WINDOWSACTIONMANAGER_H
