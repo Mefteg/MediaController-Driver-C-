@@ -1,6 +1,12 @@
 #include "mediamanager.h"
 
+#ifdef Q_OS_WIN
 #include "windowsactionmanager.h"
+#endif //Q_OS_WIN
+
+#ifdef Q_OS_MACOS
+#include "macosactionmanager.h"
+#endif //Q_OS_MACOS
 
 MediaManager::MediaManager()
     : m_mode(MediaMode::PLAYER)
@@ -10,11 +16,16 @@ MediaManager::MediaManager()
     m_actionManager = new WindowsActionManager();
 #endif //Q_OS_WIN
 #ifdef Q_OS_MACOS
-    qDebug("No action manager for MacOS. Inexpected behaviours could occur.");
+    m_actionManager = new MacOsActionManager();
 #endif //Q_OS_MACOS
 #ifdef Q_OS_LINUX
     qDebug("No action manager for Linux. Inexpected behaviours could occur.");
 #endif //Q_OS_LINUX
+}
+
+MediaManager::~MediaManager()
+{
+    delete m_actionManager;
 }
 
 void MediaManager::handleData(const QByteArray& data)
