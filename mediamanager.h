@@ -19,6 +19,7 @@ public:
     };
 
     MediaManager();
+    virtual ~MediaManager();
 
     void handleData(const QByteArray& data);
 

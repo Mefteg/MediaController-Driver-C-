@@ -2,6 +2,10 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QStringListModel>
+#include <QListView>
+#include <QPushButton>
+
 #include <QSerialPort>
 
 #include "mediamanager.h"
@@ -19,6 +23,8 @@ public:
     ~MainWindow();
 
 private slots:
+    void handleConnectButton();
+
     void openSerialPort();
     void closeSerialPort();
     void readData();
@@ -27,10 +33,15 @@ private:
     void writeData(const QByteArray &data);
 
 private:
-    MediaManager m_mediaManager;
 
     Ui::MainWindow *m_ui;
+    QStringListModel *m_model;
+    QListView *m_serialPortList;
+    QPushButton *m_connectButton;
+
     QSerialPort *m_serial;
+
+    MediaManager m_mediaManager;
 };
 
 #endif // MAINWINDOW_H

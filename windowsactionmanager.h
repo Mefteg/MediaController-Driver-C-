@@ -11,7 +11,7 @@ class WindowsActionManager : public IActionManager
 public:
     WindowsActionManager();
 
-    void executeAction(MediaManager::MediaMode mode, MediaManager::MediaAction action);
+    void executeAction(MediaManager::MediaMode mode, MediaManager::MediaAction action) override;
 
 private:
     int actionToWindowsKey(MediaManager::MediaMode mode, MediaManager::MediaAction action);
