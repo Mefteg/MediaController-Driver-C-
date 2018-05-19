@@ -104,7 +104,7 @@ void MainWindow::closeSerialPort()
 void MainWindow::readData()
 {
     const QByteArray data = m_serial->readAll();
-    qDebug(data.toStdString().c_str());
+    qDebug("%s", data.toStdString().c_str());
 
     m_mediaManager.handleData(data);
 }

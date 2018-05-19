@@ -9,6 +9,11 @@ WindowsActionManager::WindowsActionManager()
 
 }
 
+WindowsActionManager::~WindowsActionManager()
+{
+
+}
+
 void WindowsActionManager::executeAction(MediaManager::MediaMode mode, MediaManager::MediaAction action)
 {
     executeKey_Windows(actionToWindowsKey(mode, action));

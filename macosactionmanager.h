@@ -11,6 +11,8 @@ class MacOsActionManager : public IActionManager
 {
 public:
     MacOsActionManager();
+    ~MacOsActionManager() override;
+
     void executeAction(MediaManager::MediaMode mode, MediaManager::MediaAction action) override;
 };
 

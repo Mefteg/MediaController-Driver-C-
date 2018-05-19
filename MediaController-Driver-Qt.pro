@@ -27,16 +27,16 @@ win32|win64:LIBS += -luser32
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    windowsactionmanager.cpp \
-    mediamanager.cpp \
-    macosactionmanager.cpp
+        windowsactionmanager.cpp \
+        mediamanager.cpp \
+        macosactionmanager.cpp
 
 HEADERS += \
         mainwindow.h \
-    iactionmanager.h \
-    windowsactionmanager.h \
-    mediamanager.h \
-    macosactionmanager.h
+        iactionmanager.h \
+        windowsactionmanager.h \
+        mediamanager.h \
+        macosactionmanager.h
 
 FORMS += \
         mainwindow.ui

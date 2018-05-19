@@ -6,6 +6,7 @@
 class IActionManager
 {
 public:
+    virtual ~IActionManager() {}
     virtual void executeAction(MediaManager::MediaMode mode, MediaManager::MediaAction action) = 0;
 };
 

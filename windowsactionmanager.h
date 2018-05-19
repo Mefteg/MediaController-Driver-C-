@@ -10,6 +10,7 @@ class WindowsActionManager : public IActionManager
 {
 public:
     WindowsActionManager();
+    ~WindowsActionManager() override;
 
     void executeAction(MediaManager::MediaMode mode, MediaManager::MediaAction action) override;
 
