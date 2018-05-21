@@ -1,8 +1,9 @@
-#include <QtGlobal>
-
 #ifndef WINDOWSPERFORMANCEMONITOR_H
 #define WINDOWSPERFORMANCEMONITOR_H
 
+#include <QtGlobal>
+
+#ifdef Q_OS_WIN
 #include "iperformancemonitor.h"
 
 #include <Windows.h>
@@ -22,5 +23,7 @@ private:
     quint64 _previousTotalTicks;
     quint64 _previousIdleTicks;
 };
+
+#endif //Q_OS_WIN
 
 #endif // WINDOWSPERFORMANCEMONITOR_H
