@@ -60,7 +60,7 @@ void MainWindow::openSerialPort()
     }
 
     QStringList serialPortNames = m_model->stringList();
-    QString selectedSerialPortName = serialPortNames[selectedSerialPort.internalId()];
+    QString selectedSerialPortName = serialPortNames[selectedSerialPort.row()];
 
     if (m_serial->isOpen())
     {
