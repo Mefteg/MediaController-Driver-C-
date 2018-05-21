@@ -124,7 +124,9 @@ void MainWindow::readData()
 
 void MainWindow::performanceMonitorTimeOut()
 {
+#ifdef Q_OS_WIN
     qDebug("PERF MONITOR: %f", m_performanceMonitor->getCPULoad());
+#endif //Q_OS_WIN
 }
 
 
