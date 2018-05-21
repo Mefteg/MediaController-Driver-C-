@@ -1,5 +1,7 @@
 #include "macosactionmanager.h"
 
+#ifdef Q_OS_MACOS
+
 MacOsActionManager::MacOsActionManager()
 {
 
@@ -15,3 +17,5 @@ void MacOsActionManager::executeAction(MediaManager::MediaMode mode, MediaManage
 {
     qDebug("ACTION !");
 }
+
+#endif // Q_OS_MACOS

@@ -8,7 +8,10 @@
 
 #include <QSerialPort>
 
+#include <QTimer>
+
 #include "mediamanager.h"
+#include "iperformancemonitor.h"
 
 namespace Ui {
 class MainWindow;
@@ -28,6 +31,7 @@ private slots:
     void openSerialPort();
     void closeSerialPort();
     void readData();
+    void performanceMonitorTimeOut();
 
 private:
     void writeData(const QByteArray &data);
@@ -41,7 +45,10 @@ private:
 
     QSerialPort *m_serial;
 
+    QTimer performanceMonitorTimer;
+
     MediaManager m_mediaManager;
+    IPerformanceMonitor *m_performanceMonitor;
 };
 
 #endif // MAINWINDOW_H

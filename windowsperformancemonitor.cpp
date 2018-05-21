@@ -9,6 +9,11 @@ WindowsPerformanceMonitor::WindowsPerformanceMonitor()
 
 }
 
+WindowsPerformanceMonitor::~WindowsPerformanceMonitor()
+{
+
+}
+
 float WindowsPerformanceMonitor::getCPULoad()
 {
     FILETIME idleTime, kernelTime, userTime;

@@ -4,7 +4,8 @@
 class IPerformanceMonitor
 {
 public:
-    virtual float getCPULoad() const = 0;
+    virtual ~IPerformanceMonitor() {}
+    virtual float getCPULoad() = 0;
 };
 
 #endif // IPERFORMANCEMONITOR_H

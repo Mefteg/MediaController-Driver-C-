@@ -1,10 +1,11 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-
 #include <QSerialPortInfo>
 
-#include "windowsactionmanager.h"
+#ifdef Q_OS_WIN
+#include "windowsperformancemonitor.h"
+#endif //Q_OS_WIN
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -13,6 +14,7 @@ MainWindow::MainWindow(QWidget *parent)
     , m_serialPortList(nullptr)
     , m_connectButton(nullptr)
     , m_serial(nullptr)
+    , m_performanceMonitor(nullptr)
 {
     m_ui->setupUi(this);
     m_model = new QStringListModel();
@@ -37,10 +39,21 @@ MainWindow::MainWindow(QWidget *parent)
     m_model->setStringList(serialPortNames);
 
     m_serialPortList->setModel(m_model);
+
+#ifdef Q_OS_WIN
+    m_performanceMonitor = new WindowsPerformanceMonitor();
+#endif //Q_OS_WIN
+    performanceMonitorTimer.setInterval(5000);
+    performanceMonitorTimer.start(1000);
+
+    // Connect performance monitor events.
+    connect(&performanceMonitorTimer, SIGNAL(timeout()), this, SLOT(performanceMonitorTimeOut()));
 }
 
 MainWindow::~MainWindow()
 {
+    delete m_performanceMonitor;
+
     if (m_serial != nullptr)
     {
         closeSerialPort();
@@ -108,6 +121,12 @@ void MainWindow::readData()
 
     m_mediaManager.handleData(data);
 }
+
+void MainWindow::performanceMonitorTimeOut()
+{
+    qDebug("PERF MONITOR: %f", m_performanceMonitor->getCPULoad());
+}
+
 
 void MainWindow::writeData(const QByteArray &data)
 {

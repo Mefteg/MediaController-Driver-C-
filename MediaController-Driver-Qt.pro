@@ -29,14 +29,17 @@ SOURCES += \
         mainwindow.cpp \
         windowsactionmanager.cpp \
         mediamanager.cpp \
-        macosactionmanager.cpp
+        macosactionmanager.cpp \
+        windowsperformancemonitor.cpp
 
 HEADERS += \
         mainwindow.h \
         iactionmanager.h \
         windowsactionmanager.h \
         mediamanager.h \
-        macosactionmanager.h
+        macosactionmanager.h \
+        iperformancemonitor.h \
+        windowsperformancemonitor.h
 
 FORMS += \
         mainwindow.ui

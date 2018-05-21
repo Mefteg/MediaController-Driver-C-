@@ -11,8 +11,9 @@ class WindowsPerformanceMonitor : public IPerformanceMonitor
 {
 public:
     WindowsPerformanceMonitor();
+    virtual ~WindowsPerformanceMonitor() override;
 
-    float getCPULoad();
+    float getCPULoad() override;
 
 private:
     float CalculateCPULoad(quint64 idleTicks, quint64 totalTicks);
