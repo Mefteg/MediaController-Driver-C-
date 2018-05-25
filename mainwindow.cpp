@@ -43,8 +43,8 @@ MainWindow::MainWindow(QWidget *parent)
 #ifdef Q_OS_WIN
     m_performanceMonitor = new WindowsPerformanceMonitor();
 #endif //Q_OS_WIN
-    performanceMonitorTimer.setInterval(5000);
-    performanceMonitorTimer.start(1000);
+    performanceMonitorTimer.setInterval(60000);
+    performanceMonitorTimer.start(10000);
 
     // Connect performance monitor events.
     connect(&performanceMonitorTimer, SIGNAL(timeout()), this, SLOT(performanceMonitorTimeOut()));
@@ -125,7 +125,7 @@ void MainWindow::readData()
 void MainWindow::performanceMonitorTimeOut()
 {
 #ifdef Q_OS_WIN
-    qDebug("PERF MONITOR: %f", m_performanceMonitor->getCPULoad());
+    qDebug("PERF MONITOR: %f%", m_performanceMonitor->getCPULoad() * 100.0f);
 #endif //Q_OS_WIN
 }
 

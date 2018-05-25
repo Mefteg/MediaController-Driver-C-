@@ -19,6 +19,7 @@ public:
 private:
     float CalculateCPULoad(quint64 idleTicks, quint64 totalTicks);
     quint64 FileTimeToInt64(const FILETIME & ft);
+    void PrintProcessNameAndID( DWORD processID );
 
     quint64 _previousTotalTicks;
     quint64 _previousIdleTicks;
